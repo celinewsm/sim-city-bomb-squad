@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", function() {
 function randomizer(){
 	return Math.round(Math.random());
 }
-//
-// var
-// (function(){
-//
-// })
-var bombData = {
-      // 1 = bomb , 0 = safe , -1 = cut before
-		blue : randomizer(),
-    green: randomizer(),
-    red: randomizer(),
-    white: randomizer(),
-    yellow: randomizer()
-    }
+
+var bombData;
+function buildBomb(){
+  bombData = {
+    // 1 = bomb , 0 = safe , -1 = cut before
+  blue : randomizer(),
+  green: randomizer(),
+  red: randomizer(),
+  white: randomizer(),
+  yellow: randomizer()
+  }
+}
+buildBomb();
 
 //change colour image + check/update object array
 var wire = document.getElementsByClassName("wire");
@@ -88,21 +88,22 @@ var timeNow = 30.000;
 var countDown = function(){
   if (timeNow <= 0) {
     // timer gives negative 0
+    document.getElementById("sec").textContent = "00.000";
     endGame();
     document.getElementsByTagName("body")[0].classList="exploded";
     clearInterval(countdownTimer);
   }
   else if (timeNow < 10) {
-    timeNow -= 0.001
+    timeNow -= 0.012
     document.getElementById("sec").textContent = "0" + timeNow.toFixed(3);
   }
   else {
-    timeNow -= 0.001
+    timeNow -= 0.012
     document.getElementById("sec").textContent = timeNow.toFixed(3);
   }
 }
 
-var countdownTimer = setInterval(countDown,1);
+var countdownTimer = setInterval(countDown,12);
 
 var button = document.getElementsByTagName("button")
 function reset(){
