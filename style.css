@@ -52,3 +52,11 @@ body {
 button {
   width: 75%;
 }
+
+.hideButton{
+  visibility: hidden;
+}
+
+.showButton{
+  visibility: visible;
+}
