@@ -49,6 +49,7 @@ function checkBomb(){
     bombData[colorClicked] = -1;
     setTimeout(function () {
       document.getElementsByTagName("body")[0].classList="exploded";
+      clearInterval(countdownTimer);
       endGame();
     }, 750);
   }
