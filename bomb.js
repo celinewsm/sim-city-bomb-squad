@@ -20,6 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   setBomb();
 
+  //sound variables
+  var BldgExplode = document.getElementById("BldgExplode");
+  var CrowdYay = document.getElementById("CrowdYay");
+  var Electricity = document.getElementById("Electricity");
+  var Siren = document.getElementById("Siren");
+  var Success = document.getElementById("Success");
+
   //change colour image + check/update object array
   var wire = document.getElementsByClassName("wire");
   for (var i = 0 ; i < wire.length ; i++ ){
@@ -32,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (bombData[colorClicked] !== -1){
       console.log("wire clicked: " + colorClicked);
       document.getElementsByClassName(colorClicked)[1].src = ['img/cut-',colorClicked,'-wire.png'].join("");
+      Electricity.play();
     }
   }
 
@@ -55,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
       bombData[colorClicked] = -1;
       setTimeout(function () {
         document.getElementsByTagName("body")[0].classList="exploded";
+        Siren.pause();
+        BldgExplode.play();
         endGame();
       }, 750);
     }
@@ -72,19 +82,25 @@ document.addEventListener("DOMContentLoaded", function() {
   function ifDiffused(){
   var allClear = [];
   for (var i = 0 ; i < Object.keys(bombData).length ; i++){
-    // length of bombData -> Object.keys(bombData)
+    // length of bombData -> Object.keys(bombData).length
     if (bombData[Object.keys(bombData)[i]] === 0){
       allClear.push("x");
       }
     }
-    console.log(allClear);
+    // console.log(allClear);
     //wins
   if (allClear.length === 0){
     document.getElementById("timer")
+    Siren.pause();
     endGame();
     console.log("Bomb diffused");
+    //change timer to green and freeze
     document.getElementById("timer").className = "greenFont";
-    //change timer to green and freeze time
+    // play one audio after the other
+    CrowdYay.addEventListener("ended", function() {
+      Success.play();
+    });
+    CrowdYay.play();
     }
   }
 
@@ -96,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById("sec").textContent = "00.000";
       endGame();
       document.getElementsByTagName("body")[0].classList="exploded";
+      BldgExplode.play();
     }
     else if (timeNow < 10) {
       timeNow -= 0.012
@@ -122,9 +139,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.getElementById("timer").className = "redFont";
     timeNow = 30.000;
-    console.log("timeNow: " + timeNow)
     intervalManager(true, countDown, 12)
     button.classList = "hideButton";
+    Siren.play();
   }
   button.addEventListener('click',reset);
 });
