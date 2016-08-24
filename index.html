@@ -4,8 +4,38 @@
     <meta charset="utf-8">
     <title>Sim City Bomb Squad</title>
     <link rel="stylesheet" href="style.css">
-    <script src="bomb.js"></script>
+
   </head>
   <body class="unexploded">
+    <div class="container">
+      <div class="countdown">
+        <p id="timer" class="redFont">
+          <!-- hour : min : secs : milisecs -->
+          0:00:<span id="sec">30.000</span>
+        </p>
+      </div>
+      <div class="wires">
+        <div class="wire blue">
+          <img id="blueWire" class="blue" src="img/uncut-blue-wire.png" alt="" />
+          <!-- <img class="cut-blue" src="img/cut-blue-wire.png" alt="" /> -->
+        </div>
+        <div class="wire green">
+          <img id="greenWire" class="green" src="img/uncut-green-wire.png" alt="" />
+        </div>
+        <div class="wire red">
+          <img id="redWire" class="red" src="img/uncut-red-wire.png" alt="" />
+        </div>
+        <div class="wire white">
+          <img id="whiteWire" class="white" src="img/uncut-white-wire.png" alt="" />
+        </div>
+        <div class="wire yellow" >
+          <img id="yellowWire" class="yellow" src="img/uncut-yellow-wire.png" alt="" />
+        </div>
+    </div>
+    <div class="button">
+      <button type="button" name="button">reset</button>
+    </div>
+
+    <script src="bomb.js"></script>
   </body>
 </html>

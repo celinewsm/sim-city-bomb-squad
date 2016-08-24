@@ -1,0 +1,54 @@
+body {
+  letter-spacing: 0.2em;
+}
+
+.unexploded {
+  background-image: url("img/simcity.jpg");
+}
+
+.exploded {
+  background-image: url("img/explosion.jpg");
+}
+
+.container {
+  position: fixed;
+  text-align: center;
+  background-color: black;
+  float: left;
+  top: 15%;
+  left: 41%;
+  width: 18%;
+  min-width: 200px;
+}
+
+.countdown {
+  padding-top: 15px;
+  margin: 0 auto;
+}
+
+.wires {
+  display: table;
+  margin: 0 auto;
+}
+
+.wire {
+  display:table-cell;
+  padding: 2px;
+}
+
+.redFont {
+  color: red;
+}
+
+.greenFont {
+  color: green;
+}
+
+.button {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+button {
+  width: 75%;
+}
