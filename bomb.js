@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function endGame(){
-    for (var i=0; i < Object.keys(bombData)[1].length ; i++) {
+    for (var i=0; i < Object.keys(bombData).length ; i++) {
       bombData[Object.keys(bombData)[i]] = -1;
     }
     intervalManager(false);
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function() {
   //diffused if all bombs != 0;
   function ifDiffused(){
   var allClear = [];
-  for (var i = 0 ; i < Object.keys(bombData)[1].length ; i++){
-    // length of bombData -> Object.keys(bombData)[1]
+  for (var i = 0 ; i < Object.keys(bombData).length ; i++){
+    // length of bombData -> Object.keys(bombData)
     if (bombData[Object.keys(bombData)[i]] === 0){
       allClear.push("x");
       }
