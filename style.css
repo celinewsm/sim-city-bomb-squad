@@ -2,12 +2,18 @@ body {
   letter-spacing: 0.2em;
 }
 
+html {
+  height: 100%;
+}
+
 .unexploded {
   background-image: url("img/simcity.jpg");
+  background-size:cover;
 }
 
 .exploded {
   background-image: url("img/explosion.jpg");
+  background-size: cover;
 }
 
 .container {
